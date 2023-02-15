@@ -1,0 +1,127 @@
+{% extends 'user/account.html' %}
+{% load static %}
+{% block title %}livetrade{% endblock %}
+
+
+{% block temp %}
+
+<style>
+    @media (min-width:992px){
+    }
+
+      .radia{border-radius:20ex;animation-duration:20s;position:absolute;width:3ex; height:3ex;
+  animation-name:blick;animation-iteration-count:infinite;animation-duration:2s;display:non;margin:0ex 4ex 0px 0px;}
+  .trade{display:{{bot}};}
+
+
+ @keyframes blick{
+  0%{
+
+    border:1px solid green;
+    opacity:0.9;
+    transform:scale(2)
+  }
+
+  20%{
+
+    border:10px solid green;
+    opacity:0.1;
+    transform:scale(5)
+
+  }
+   40%{
+
+    border:1px solid green;
+    opacity:0.9;
+    transform:scale(2)
+  }
+
+  60%{
+
+    border:10px solid green;
+    opacity:0.1;
+    transform:scale(5)
+
+  }
+   80%{
+
+    border:1px solid red;
+    opacity:0.9;
+    transform:scale(2)
+  }
+
+  100%{
+
+    border:10px solid red;
+    opacity:0.1;
+    transform:scale(5)
+
+  }
+}
+
+
+
+    }
+
+</style>
+
+<div class="row">
+    <div class="col s12 l10" style="padding:0px;">
+        <div id="chart-page">
+            <div class="tradingview-widget-container" >
+                <div id="tradingview_f933e"><div id="tradingview_904d2-wrapper" style="position: relative;box-sizing: content-box;width: 100%;height: calc(550px - 32px);margin: 0 auto !important;padding: 0 !important;font-family:Arial,sans-serif;"><div style="width: 100%;height: calc(550px - 32px);background: transparent;padding: 0 !important;"><iframe id="tradingview_904d2" src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_904d2&amp;symbol=COINBASE%3ABTCUSD&amp;interval=1&amp;hidesidetoolbar=0&amp;symboledit=1&amp;saveimage=1&amp;toolbarbg=f1f3f6&amp;studies=BB%40tv-basicstudies&amp;theme=dark&amp;style=9&amp;timezone=Etc%2FUTC&amp;studies_overrides=%7B%7D&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=en&amp;utm_source=legitcryptoauction.com&amp;utm_medium=widget_new&amp;utm_campaign=chart&amp;utm_term=COINBASE%3ABTCUSD" style="width: 100%; height: 100%; margin: 0 !important; padding: 0 !important;" frameborder="0" allowtransparency="true" scrolling="no" allowfullscreen=""></iframe></div></div></div>
+                <div class="tradingview-widget-copyright" style="width: 100%;"><a href="#" rel="noopener" target="_blank"><span class="blue-text"></span> <span class="blue-text"></span></a></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+  new TradingView.widget(
+  {
+  "width": "100%",
+  "height": "550",
+  "symbol": "COINBASE:BTCUSD",
+  "interval": "1",
+  "timezone": "Etc/UTC",
+  "theme": 'dark',
+  "style": "9",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "hide_side_toolbar": false,
+  "allow_symbol_change": true,
+  "calendar": false,
+  "studies": [
+    "BB@tv-basicstudies"
+  ],
+  "container_id": "tradingview_f933e"
+}
+  );
+  </script>
+            </div>
+
+        </div>
+
+
+
+    </div>
+<!--the robot-->
+    {% if user.robot %}
+<div class="radia trade" style="border-radius:100%;position:absolute;top:50ex;right:20%;z-index:9;border:2px solid red;">
+</div>
+<img class="trade" src="{%static 'trade.png'%}" style="width:3.5ex;border-radius:100%;position:absolute;top:50ex;right:20%;z-index:9;width:5ex;margin:-2ex 2.8ex;" />
+{% endif %}
+
+    <!-- the balance info-->
+
+    <div class="row">
+        <div class="col s12">
+                <ul class="collection">
+      <li class="collection-item" style="background-color:#1f1b34;color:white;"><span class="material-icons">smart_toy</span> <span class="right">{{user.bot}}</span></li>
+      <li class="collection-item">PLAN <span class="right">{{user.plan}}</span></li>
+      <li class="collection-item">TYPE <span class="right">{{user.trade}}</span></li>
+      <li class="collection-item">DURATION <span class="right">{{du}}</span></li>
+    </ul>
+<a href="/setup/" class="btn waves-effect red"><i class="im im-gear left"></i>setup</a>
+<a class="btn waves-effect waves-light right"><i class="im im-line-chart-up left"></i>trade</a>
+        </div>
+
+    </div>
+    {% endblock %}

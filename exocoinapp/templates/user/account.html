@@ -1,0 +1,333 @@
+{% extends 'home/index.html' %}
+{% block title %}account{% endblock %}
+
+
+
+{% block body %}
+
+<style>
+    /* for mobile */
+    @media (max-width:992px){
+    .bal{position:absolute !important;}
+    .wallet{display:none;}
+    .wals{display:none;}
+    .ethwallet{display:none;}
+    .img{width:80%;}
+    .navs{display:none;}
+    }
+
+    /* for desktop */
+    @media (min-width:992px){
+    .amt{width:88%;margin-left:10ex !important;}
+    .but{display:none;}
+    .ethwallet{display:none;}
+    .oth{margin-left:9%;border-bottom:2px solid grey;}
+    .img{width:30%;}
+    .walletdb{display:none;}
+    #plans{right:-48ex !important;}
+    #promo{height:33ex;}
+    .nbut{margin-top:1ex;width:100% !important;}
+
+    }
+    </style>
+{% block navs %}
+{% endblock %}
+{% block nav %}
+<!--the sidebar -->
+<ul class="sidenav" id="mobile-demo">
+                {% if user.code == site.admin %}
+            <li>
+                <a href="/admin/" class="nbut btn weaves-effect waves-light blue-grey darken-4"><i class="material-icons left white-text">admin_panel_settings
+                </i>Admin</a>
+            </li>
+            {% endif %}
+    <li><a href="/account/" class="nbut btn weaves-effect waves-light deep-purple accent-2"><i class="material-icons left">account_circle
+    </i>dashboard</a></li>
+    <li>
+        <a href="/deposit/" class="nbut btn weaves-effect waves-light red"><i class="material-icons left">payments
+        </i>deposit </a>
+    </li>
+    <li>
+        <a href="/livetrade/" class="nbut btn weaves-effect waves-light blue pulse"><i class="material-icons left">bar_chart</i>LIVE&nbsp;TRADE</a>
+    </li>
+    <li>
+        <a href="/withdraw/" class="nbut btn weaves-effect waves-light "><i class="material-icons left">account_balance</i>withdraw</a>
+    </li>
+
+    <li>                <a href="/history/" class="nbut btn weaves-effect waves-light indigo "><i class="material-icons left">history</i>History</a>
+    </li>
+    <li>
+        <a href="/list/" class="nbut btn weaves-effect waves-light teal darken-2 "><i class="material-icons left">person_add</i>Referred&nbsp;List</a>
+    </li>
+    <li>
+        <a href="/logout/" class="nbut btn weaves-effect waves-light red "><i class="material-icons left">logout</i>Logout</a>
+
+    </li>
+</ul>
+{% endblock %}
+<div class="row" style="padding:2ex;background-color:#77165e;">
+    <div class="col s3 ">
+        <a href="{{user.photo.url}}"><img src="{{ user.photo.url }}" alt="profile" class="circle responsive-img img"></a>
+        <!-- notice the "circle" class -->
+    </div>
+    <div class="col s5 white-text">
+        welcome <br/><span style="font-size:2.3ex !important;">{{user.name}}</span>
+    </div>
+
+    <div class="col s4 right">
+        <i class="im im-star right  orange-text darken-4-text"><br/><span style="color:white;text-align:right;position:relative;font-size:1ex;">{{user.plan}}</span></i><br/>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col l2">
+        <div class="row navs">
+            {% if user.code == site.admin %}
+            <div class="col  l12 ">
+                <a href="/admin/" class="nbut btn weaves-effect waves-light blue-grey darken-4"><i class="material-icons left">admin_panel_settings
+                </i>Admin</a>
+            </div>
+            {% endif %}
+
+            <div class="col  l12 ">
+                <a href="/account/" class="nbut btn weaves-effect waves-light deep-purple accent-2"><i class="material-icons left">account_circle
+                </i>dashboard</a>
+            </div>
+
+            <div class="col  l12 ">
+                <a href="/deposit/" class="nbut btn weaves-effect waves-light red"><i class="material-icons left">payments
+                </i>deposit </a>
+            </div>
+            <div class="col  l12 ">
+                <a href="/withdraw/" class="nbut btn weaves-effect waves-light "><i class="material-icons left">account_balance</i>withdraw</a>
+            </div>
+
+            <div class="col l12 ">
+                <a href="/livetrade/" class="nbut btn weaves-effect waves-light blue pulse"><i class="material-icons left">bar_chart</i>LIVE&nbsp;TRADE</a>
+            </div>
+
+            <div class="col  l12 ">
+                <a href="/history/" class="nbut btn weaves-effect waves-light indigo "><i class="material-icons left">history</i>History</a>
+            </div>
+            <div class="col  l12 ">
+                <a href="/list/" class="nbut btn weaves-effect waves-light teal darken-2 "><i class="material-icons left">person_add</i>Referred&nbsp;List</a>
+            </div>
+            <div class="col  l12 ">
+                <a href="/logout/" class="nbut btn weaves-effect waves-light red"><i class="material-icons left">logout</i>Logout</a>
+            </div>
+
+        </div>
+    </div>
+    {% block temp %}
+    <div class="col l10">
+
+        <!-- Modal Trigger -->
+        {% if user.title %}
+        <a class="waves-effect waves-light btn modal-trigger red pulse notify" href="#modal1"><i class="material-icons left">notifications_active</i>1</a>
+        {% endif %}
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h6><b>{{user.title}}</b></h6>
+                <p>{{user.msg}}</p>
+            </div>
+            <div class="modal-footer">
+                <a href="mailto:{{site.email}}" class="left"><i class="material-icons">support_agent</i>support</a>
+                <a class="modal-close waves-effect waves-green okay">okay</a>
+            </div>
+        </div>
+<div>
+        <div class="row" >
+            <div style="background-color:#607d8b;" class="card accent-4 col s12 l4 push-l1 balshow">
+                <div class="card-content white-text">
+                    <hr/>
+                                        <p>Total Deposit: <a class="btn grey right" style="position:aboslute;margin-top:-1ex;"> {{user.currency}}{{user.tbal}}</a></p>
+                    <hr/>
+                    <span class="card-title">BALANCE</span>
+                    <p style="font-size:6ex;">
+                        {{user.currency}}{{cash}}
+                     </p>
+                    <div class="walletdb" style="color:white;position:absolute;right:2ex;text-align:center;margin-top:-8ex;">
+                        WALLETS <br/>
+                        <span class="material-icons walletbtn">account_balance_wallet</span>
+                    </div>
+                    <hr/>
+                    <p><span class="material-icons left" style="color:#8bc34a;background-color:#8bc34a63;">
+                    savings
+                    </span><b>:</b> {{user.currency}}{{user.ava}} <label class="right">Spendable Amount</label></p>
+                    <br/>
+                    <p style=""><span class="material-icons left" style="color:red;background-color:#f443366e;">
+                    bar_chart
+                    </span><b>:</b> {{user.currency}}{{user.cap}} <label class="right">Trade Capital</label></p>
+
+                </div>
+                <div class="card-action" >
+                    <a href="">Trade Type :</a>
+                    <a href=""style="margin-left:-3ex;">{{user.trade}}</a>
+                </div>
+            </div>
+            <!--the bitcoin wallet-->
+            <div class="col s12 l7 wallet" style="">
+                <div class="row">
+                    <div class="card  blue accent-4 col s12 l10 push-l2 ">
+                        <div class="card-content white-text">
+                            <span class="card-title">BITCOIN</span>
+                            <p style="font-size:6ex;">
+                                {{user.currency}}{{user.btc}}
+                            </p>
+                            <div class="walletn" style="color:white;position:absolute;right:2ex;text-align:center;margin-top:-8ex;">
+                                WALLETS <br/>
+                                <span class="nextbtn material-icons">navigate_next</span>
+                            </div>                        </div>
+                        <div class="card-action">
+                            <span style="font-size:1.5ex;">{{site.btc_wallet}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--the ethereum wallet -->
+            <div class="col s12 l7 ethwallet" style="">
+                <div class="row">
+                    <div class="card  blue accent-4 col s12 l10 push-l2 ">
+                        <div class="card-content white-text">
+                            <span class="card-title">ETHEREUM</span>
+                            <p style="font-size:6ex;">
+                                {{user.currency}}{{user.eth}}
+                            </p>
+                            <div class="walletn" style="color:white;position:absolute;right:2ex;text-align:center;margin-top:-8ex;">
+                                WALLETS <br/>
+                                <span class="but shbal material-icons ">request_quote</span>
+                                <span class="nextbtn material-icons wals">navigate_next</span>
+
+                            </div>                        </div>
+                        <div class="card-action">
+                            <span style="font-size:1.5ex;">{{site.eth_wallet}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--the button-->
+        <center>
+            <div class="row but" >
+
+                <div class="col s3 l1">
+                    <a href="/deposit/" class="btn weaves-effect waves-light red" style="margin-left:-1ex;">deposit</a>
+                </div>
+                <div class="col s4 l1" style="margin:0px 1ex 0px 1ex;">
+                    <a href="/withdraw/" class="btn weaves-effect waves-light ">withdraw</a>
+                </div>
+
+                <div class="col s4 l2">
+                    <a href="/livetrade/" class="btn weaves-effect waves-light blue pulse" style="width:85%;font-size:1.3ex;">LIVE&nbsp;TRADE</a>
+                </div>
+            </div>
+        </center>
+        <!--the button ends-->
+    </div>
+        <span class="oth">OTHERS</span>
+
+        <div class="row amt" style="">
+            <div class="col s12 l12 ">
+                <div class="card darken-1" style="background-color:#0a1c82;">
+                    <div class="card-content white-text">
+                        <span class="card-title"><i class="im im-arrow-up"></i> PROFIT</span>
+                        <h5>{{user.currency}}{{user.prof}}
+                        </h5>
+                    </div>
+                    <div class="card-action">
+                        <a href="">Trade Type :</a>
+                        <a href="" style="margin-left:-3ex;">{{user.trade}}</a>
+                        <span style="float:right;color:white;">Duration: {{duration}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card  col s12 l8 "  style="background-color:#77165e;">
+                <div class="card-content white-text" >
+                    <span class="card-title"><i class="im im-gift red-text"></i> REFERRAL BONUS</span>
+                    <p style="font-size:3ex;">
+                        {{user.ref_promo}}
+                    </p>
+                    <i class="material-icons">group_add</i>
+                    <a href="#" style="font-size:3ex;"></a>
+                </div>
+                <div class="card-action white-text">
+                    <div class="white" style="padding:1ex;">
+                        <label>share invitation link</label>
+                        <br/> <input id="myInput" value="https://nietypowypolslikryptofx.us/?ref={{user.code}}"style="width:70%;" readonly> <a class="btn" onclick="myFunction()"><i style="color:white;" class="material-icons" >content_copy</i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 l4">
+                <div class="card darken-1" style="background-color:#03a9f4;" id="promo">
+                    <div class="card-content white-text">
+                        <span class="card-title"><i class="im im-gift" style="color:pink;"></i> promo</span>
+                        <h5>{{user.currency}}{{user.promo}}</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card  col s12 l8 "  style="background-color:#082c3d;">
+                <br/>
+                <div class="card-image">
+                  <img src="https://media.istockphoto.com/photos/future-financial-technology-controlled-by-ai-robot-using-machine-picture-id1279643782?k=20&m=1279643782&s=612x612&w=0&h=XwyT1FNEYVBsziIAZurWj6fM9Bcxit2-LGECe-9wseg=">
+                  <span class="card-title"><span style="background-color:#12131382;padding:1ex;">AI TRADE ROBOTS</span></span>
+                  <a href="/market" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">store</i></a>
+                </div>
+                <div class="card-content white-text" >
+                    <p>AI Trading Robot is an Artificial Intelligence Integrated system leveraging an ai function. In general, AI systems work by investing large amounts of labeled training data, analyzing the data for correlations and patterns, and using these patterns to make profitable Decision and predictions about future states.</p>
+                    <P>The best handle Automated trade to ensure your make profit even while you relax. </P>
+                </div>
+                <div class="card-action white-text">
+                    <div class="" style="padding:1ex;">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    {% endblock %}
+</div>
+<script>
+
+  $(document).ready(function(){
+    $('.modal').modal();
+    $('.sidenav').sidenav();
+
+
+    $('.okay').click(function(){
+        $('.notify').hide();
+    });
+
+  });
+
+    {{user.currency}}(document).ready(function(){
+        {{user.currency}}('.walletbtn').click(function(){
+        {{user.currency}}('.balshow, .wallet').toggle() });
+
+        {{user.currency}}('.nextbtn').click(function(){
+        {{user.currency}}('.ethwallet, .wallet').toggle() });
+
+        {{user.currency}}('.shbal').click(function(){
+        {{user.currency}}('.ethwallet, .balshow').toggle() });
+    });
+
+    function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+}
+</script>
+{% endblock %}

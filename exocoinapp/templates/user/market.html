@@ -1,0 +1,90 @@
+{% extends 'user/account.html' %}
+{% block title %}add bank{% endblock %}
+
+{% block temp %}
+
+  <div class="row">
+      <!-- 1ST CLASS -->
+ {% for fbot in Fbot %}
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1625314887424-9f190599bd56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YWklMjByb2JvdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60">
+          <span class="card-title">{{fbot.name}}</span>
+        </div>
+        <div class="card-content">
+          <P><b>ABOUT:</b> </br>{{fbot.tendency}}</P>
+
+          <br/>
+          <P><span class="material-icons yellow-text">hotel_class</span><b><sup></sup></b>  <b class="right"></b><span class="material-icons right black-text"><span class="material-icons-outlined">
+people
+</span></span>
+          </P>
+          <hr/>
+          <P>Price <b>${{fbot.price}}</b>
+          <a class="btn green right" onclick="tidioChatApi.messageFromVisitor('🛒1  [AI 🤖 ] {{fbot.name}} - AND PRICE  [${{fbot.price}}],I AM READY TO MAKE PAYMENT FOR THIS ORDER ');">GET</a>
+          </P>
+        </div>
+      </div>
+    </div>
+ {% endfor %}
+    <!--2ND CLASS-->
+ {% for Mbot in mbot %}
+        <div class="col s12 m3">
+      <div class="card">
+        <div class="card-image">
+          <img src="https://media.istockphoto.com/photos/irobot-touch-picture-id543190650?k=20&m=543190650&s=612x612&w=0&h=dz3s5YiZQ3DQqtH73_a32_mXDedH1HFA3D1icg5k9lw=">
+          <span class="card-title">{{mbot.name}}</span>
+        </div>
+        <div class="card-content">
+          <p>TRADE DURATION: <b>{{mbot.dur}}</b></p>
+          <P>TRADE TENDENCY: <b>{{mbot.tendency}}</b></P>
+          <P>MARKET: <b>{{mbot.market}}</b></P>
+          <br/>
+          <P><span class="material-icons yellow-text">hotel_class</span><b><sup>{{mbot.rate}}</sup></b>  <b class="right">{{mbot.user}}</b><span class="material-icons right black-text"><span class="material-icons-outlined">
+people
+</span></span>
+          </P>
+          <hr/>
+          <P>Price <b>${{mbot.price}}</b>
+          <a class="btn green right" onclick="tidioChatApi.messageFromVisitor('🛒1  [AI 🤖 ] {{mbot.name}} - AND PRICE  [${{mbot.price}}], ARE YOU READY TO MAKE PAYMENT FOR THIS ORDER ');">GET</a>
+          </P>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+
+    <!-- 3RD CLASS -->
+     {% for Gbot in gbot %}
+         <div class="col s12 m3">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="https://media.istockphoto.com/photos/creative-digital-ai-brain-picture-id1287953360?k=20&m=1287953360&s=612x612&w=0&h=4mfwyrdhUKz93RJtvg0-5QsgSUVvwnxUFhs4A-oLkgQ=">
+          <span class="card-title">{{gbot.name}}</span>
+        </div>
+        <div class="card-content">
+          <p>TRADE DURATION: <b>{{gbot.dur}}</b></p>
+          <P>TRADE TENDENCY: <b>{{gbot.tendency}}</b></P>
+          <P>MARKET: <b>{{gbot.market}}</b></P>
+          <br/>
+
+          <P><span class="material-icons yellow-text">hotel_class</span><b><sup>{{gbot.rate}}</sup></b>  <b class="right">{{gbot.user}}</b><span class="material-icons right black-text"><span class="material-icons-outlined">
+people
+</span></span>
+          </P>
+          <hr/>
+          <P>Price <b>${{gbot.price}}</b>
+          <a class="btn green right" onclick="tidioChatApi.messageFromVisitor('🛒1  [AI 🤖 ] {{gbot.name}} - AND PRICE  [${{gbot.price}}], ARE YOU READY TO MAKE PAYMENT FOR THIS ORDER ');">GET</a>
+          /P>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+</div>
+
+
+{% endblock %}

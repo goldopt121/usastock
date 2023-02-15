@@ -1,0 +1,42 @@
+{% extends 'user/account.html' %}
+{% block title %}deposit{% endblock %}
+
+{% block temp %}
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card " style="background-color:#1f1b34;">
+        <div class="card-content white-text">
+          <span class="card-title"><i class="material-icons">account_balance_wallet</i> WALLET</span>
+          <p style="font-size:4ex;">{{user.currency}}{{balw}}</p>
+        </div>
+        <div class="card-action">
+          <a href="/wallet/" class="btn">RECEIVE</a>
+
+        </div>
+      </div>
+    </div>
+<form method="post" target="_self">
+   {% csrf_token %}
+    <div class="col s12 m6">
+      <P style="color:red">{{error}}</P>
+      <div class="card " style="background-color:#1f1b34;">
+        <div class="card-content white-text">
+          <span class="card-title"><i class="im im-credit-card"></i> CREDIT CARD</span>
+          <P>{{user.card_n}}</P>
+          <p style="font-size:4ex;">{{user.currency}}{{user.bal}}</p>
+          <p>AMOUNT:</p>
+          <P>
+          <input required name="card" class="white" type="text" style="padding-left:1ex;" ><br/>
+          </P>
+        </div>
+        <div class="card-action">
+          <button class="btn" type="submit">FUND</button>
+            <a href="/card/" class="btn blue"><i class="im im-plus left"></i>ADD CARD</a>
+
+        </div>
+      </div>
+    </div>
+</form>
+  </div>
+
+{% endblock %}

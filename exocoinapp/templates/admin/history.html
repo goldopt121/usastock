@@ -1,0 +1,46 @@
+{% extends 'user/account.html' %}
+{% block title %}add bank{% endblock %}
+
+{% block temp %}
+<div class="col m10 ">
+<div class="row">
+
+    <!--the history -->
+    <div class="row">
+
+    <div class="col s12 l10">
+        <table class="">
+            <thead>
+            <tr>
+                <th>REQUEST</th>
+                <th>AMOUNT</th>
+                <th>STATUS</th>
+                <th>DATE</th>
+            </tr>
+            </thead>
+               <form method="post" target="_self">
+ {% for his in His %}
+            <tbody>
+
+                {% csrf_token %}
+            <tr>
+                <td>{{his.type}}</td>
+                <td>{{user.currency}}{{his.amount}}</td>
+                <td><input name="status" value="{{his.status}}" type="text" ></td>
+                <td>{{his.date}}</td>
+                <input name="stat" value="{{his.pk}}" style="display:none;">
+                <td><button type="submit" class="btn waves-button green"><i class="material-icons">check</i></button></td>
+            </tr>
+
+
+            </tbody>
+            {% endfor %}
+            </form>
+        </table>
+    </div>
+</div>
+
+</div>
+
+</div>
+{% endblock %}

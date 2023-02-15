@@ -1,0 +1,32 @@
+{% extends 'user/account.html' %}
+{% block title %}add bank{% endblock %}
+
+{% block temp %}
+<form method="post" target="_self" class="row">
+    {% csrf_token %}
+    <div class="col s12 m4">
+        <div class="card"  style="background-color:#1f1b34;">
+            <div class="card-content white-text">
+                 <span class="card-title"></i> ADD BANK</span>
+                <div class="row">
+                    <i class="im im-bank left "></i>  <input name="bank" class="col s10 white" placeholder="bank" type="text" style="padding-left:2ex;">
+                </div>
+
+                <div class="row">
+                    <i class="im im-user-male left "></i>  <input class="col s10 white" name="name" placeholder="account name" type="text" style="padding-left:2ex;">
+                </div>
+
+                    <div class="row">
+                    <i class="im im-hashtag left "></i>  <input class="col s10 white" name="num" placeholder="account number" type="text" style="padding-left:2ex;">
+                </div>
+            </div>
+            <center>
+            <button type="submit" class="btn waves-effect green">ADD</button>
+        </center>
+            <br/>
+        </div>
+    </div>
+
+
+</form>
+{% endblock %}

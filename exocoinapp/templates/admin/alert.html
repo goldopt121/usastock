@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>verification-email</title>
+
+    <style>
+        @media (min-width:992px){
+        .td1{width:5%;}
+        .msg{width:40% !important;}
+        }
+
+        @media (max-width:992px){
+        .td1{width:20%;}
+        .td2{margin-left:1ex;}
+        }
+
+    </style>
+
+</head>
+<body style="width:100%; overflow-x:hidden; margin:0px;font-family:Sans-serif;">
+<header>
+    <table style="width:100%; background-color:#1f1b34;">
+
+        <tr>
+            <td class="td1"><img src="https://yt3.ggpht.com/a/AGF-l783QTFHGWOQR1BrCzFzwDEmbfjWiHVwT-0hlg=s900-c-k-c0xffffffff-no-rj-mo" style="width:100%;" ></td>
+            <td style="color:white;"><h1 class="td2"><h1>EXOCOIN_FCM</h1></td>
+        </tr>
+    </table>
+</header>
+{% block content %}
+<center>
+    <h4 style='background-color:#095ad2cc;color:white;padding:2ex;'>ACCOUNT CREDITED</h4>
+
+
+    <div class="msg" style="color:#0d1852;width:70%;padding:2.5%;border:2px solid white;height:35ex;background-color:#f5f1e747;text-align:left;">
+
+        <h3>your account has been credited</h3>
+        <h3>{{amt}}</h3>
+        <hr>
+        <p><b>SUMMARY</b> </p><hr>
+        <table>
+            <tr>
+                <td>DATE:</td>
+                <td><span style="float:right;font-size:1.5ex;">{{date}}</span></td>
+            </tr>
+
+            <tr>
+                <td>BALANCE:</td>
+                <td><span style="float:right;">{{bal}}</span></td>
+            </tr>
+
+            <tr>
+                <td>PROFIT:</td>
+                <td><span style="float:right;">{{user.prof}}</span></td>
+            </tr>
+
+            <tr>
+                <td>PROMO-GIFT:</td>
+                <td><span style="float:right;">{{user.promo}}</span></td>
+            </tr>
+
+            <tr>
+                <td>REF-GIFT:</td>
+                <td><span style="float:right;">{{user.ref_promo}}</span></td>
+            </tr>
+        </table>
+<hr>
+    </div>
+    <br/><br/>
+</center>
+{% endblock %}
+<footer style="width:90%; background-color:#1f1b34;color:white;padding:5%;">
+    <div>
+        <h4 style="">MARKET</h4>
+        <hr/>
+        <ul>
+            <li>FOREX</li>
+            <li>CRYPTO MINING</li>
+            <li>STOCK</li>
+            <li>INDICES</li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,135 @@
+{% extends 'user/account.html' %}
+{% block title %}admin{% endblock %}
+
+{% block temp %}
+<div class="col m10 push-m1">
+<div class="row">
+    <div class="col s5">
+        <a href="/admin/" class="col s12 btn ">members</a>
+    </div>
+
+    <div class="col s5">
+        <a href="/site/" class="col s12 btn blue">manage_site</a>
+    </div>
+    <!--the manage-->
+    <form method="post" target="_self" class="col s12 m5">
+            {% csrf_token %}
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">
+                        MANAGE <a class="btn right"><i class="material-icons">edit</i></a>
+                    </span>
+                    <br/>
+                    <p>mail: <input name="mail" class="edit" value="{{site.email}}" style="width:30%;color:white;"></p>
+                    <p>phone: <input name="phone" class="edit" value="{{site.phone}}" style="width:70%;color:white;"></p>
+                    <p>address: <input name="add" class="edit" value="{{site.add}}" style="width:70%;color:white;"></p>
+                    <p>btc wallet: <input name="btc" class="edit" value="{{site.btc_wallet}}" style="width:70%;color:white;"></p>
+                    <p>eth wallet: <input name="eth" class="edit" value="{{site.eth_wallet}}" style="width:70%;color:white;"></p>
+                    <p>admin : <input name="code" class="edit" value="{{site.admin}}" style="width:70%;color:white;"></p>
+                    <br/>
+                    <p><button class="btn waves-effect blue" type="submit">update</button></p>
+                </div>
+                <div class="card-action">
+                </div>
+            </div>
+        </form>
+
+
+</div>
+    </div>
+
+      <div class="row">
+      <!-- 1ST CLASS -->
+
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1625314887424-9f190599bd56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YWklMjByb2JvdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60">
+          <span class="card-title">Fbot</span>
+        </div>
+        <div class="card-content">
+           <form method="post" target="_self">
+            {% csrf_token %}
+            <p><input type="text" name ="fbot" placeholder="name" /></p>
+            <p><input type="text" name ="price" placeholder="price" /></p>
+            <!--<p><input type="text" name ="rate" placeholder="rate" /></p>-->
+            <!--<p><input type="text" name ="user" placeholder="user" /></p>-->
+            <!--<p><input type="text" name ="market" placeholder="market" /></p>-->
+            <p><input type="text" name ="tendency" placeholder="About" /></p>
+
+            <p><button class="btn" type="submit">ADD</button></p>
+
+            </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!--2ND CLASS-->
+
+    <!--    <div class="col s12 m4">-->
+    <!--  <div class="card">-->
+    <!--    <div class="card-image">-->
+    <!--      <img src="https://media.istockphoto.com/photos/irobot-touch-picture-id543190650?k=20&m=543190650&s=612x612&w=0&h=dz3s5YiZQ3DQqtH73_a32_mXDedH1HFA3D1icg5k9lw=">-->
+    <!--      <span class="card-title">Bbot</span>-->
+    <!--    </div>-->
+    <!--    <div class="card-content">-->
+    <!--       <form method="post" target="_self">-->
+    <!--        {% csrf_token %}-->
+    <!--        <p><input type="text" name ="bbot" placeholder="name" /></p>-->
+    <!--        <p><input type="text" name ="price" placeholder="price" /></p>-->
+    <!--        <p><input type="text" name ="rate" placeholder="rate" /></p>-->
+    <!--        <p><input type="text" name ="user" placeholder="user" /></p>-->
+    <!--        <p><input type="text" name ="market" placeholder="market" /></p>-->
+    <!--        <p><input type="text" name ="tendency" placeholder="tendency" /></p>-->
+
+    <!--        <p><button class="btn" type="submit">ADD</button></p>-->
+
+    <!--        </form>-->
+
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--</div>-->
+
+    <!-- 3RD CLASS -->
+    <!--     <div class="col s12 m4">-->
+    <!--  <div class="card">-->
+    <!--    <div class="card-image">-->
+    <!--      <img src="https://media.istockphoto.com/photos/creative-digital-ai-brain-picture-id1287953360?k=20&m=1287953360&s=612x612&w=0&h=4mfwyrdhUKz93RJtvg0-5QsgSUVvwnxUFhs4A-oLkgQ=">-->
+    <!--      <span class="card-title">Gbot</span>-->
+    <!--    </div>-->
+    <!--    <div class="card-content">-->
+    <!--       <form method="post" target="_self">-->
+    <!--        {% csrf_token %}-->
+    <!--        <p><input type="text" name ="fbot" placeholder="name" /></p>-->
+    <!--        <p><input type="text" name ="price" placeholder="price" /></p>-->
+    <!--        <p><input type="text" name ="rate" placeholder="rate" /></p>-->
+    <!--        <p><input type="text" name ="user" placeholder="user" /></p>-->
+    <!--        <p><input type="text" name ="market" placeholder="market" /></p>-->
+    <!--        <p><input type="text" name ="tendency" placeholder="tendency" /></p>-->
+
+    <!--        <p><button class="btn" type="submit">ADD</button></p>-->
+
+    <!--        </form>-->
+
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--</div>-->
+  </div>
+
+        <ul class="collection with-header">
+        <li class="collection-header"><h4>ROBOTS</h4></li>
+        {% for fbot in Fbot %}
+        <li class="collection-item"><div>{{fbot.pk}}<a href="?delFbot={{fbot.pk}}" class="secondary-content"><i class="material-icons red-text">delete</i></a></div></li>
+        {% endfor %}
+
+        {% for mbot in Mbot %}
+        <li class="collection-item"><div>{{mbot.name}}<a href="?delMbot={{mbot.name}} " class="secondary-content"><i class="material-icons red-text">delete</i></a></div></li>
+        {% endfor %}
+
+         {% for gbot in Mbot %}
+        <li class="collection-item"><div>{{gbot.name}}<a href="?delGbot={{gbot.name}}" class="secondary-content"><i class="material-icons red-text">delete</i></a></div></li>
+        {% endfor %}
+   </ul>
+
+{% endblock %}

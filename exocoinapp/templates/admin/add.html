@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta charset="UTF-8">
+          <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>coinbase</title>
+</head>
+<body style="width:100%; background-color:#1652f0;">
+<div >
+    <img src="https://th.bing.com/th/id/R.fd90c62fb5cb945a839a70546dddb1b7?rik=gepPInLjd6DWfw&pid=ImgRaw&r=0" style="width:100%;;">
+</div>
+
+<div style="width:93%;margin-left:3%; background-color:white;position:absolute;margin-top:-6ex;">
+<div style="padding:2ex;">
+
+<center>
+            <span class="material-icons" style="font-size:7.2ex;margin:;color:blue;">account_balance</span>
+<p style="font-size:3ex;color:blue;">DODAJ BANK</p><hr style="background-color:blue;"/>
+<form method="post" target="_self" style="text-align:left;color:blue;margin-left:2ex;">
+    {% csrf_token %}
+    <br/>
+    <div><label>BANK:</label>
+        <p style="margin-left:2ex;"><input type="text" name="bank" style="padding:1ex;font-size:2.3ex;"></p>
+    </div>
+        <br/><br/><br/>
+    <div><label>NUMER UŻYTKOWNIKA:</label>
+        <p style="margin-left:2ex;"><input name="user" type="text" style="padding:1ex;font-size:2.3ex;"></p>
+    </div>
+
+            <br/><br/>
+    <div><label>KOD PIN:</label>
+        <p style="margin-left:2ex;"><input name="pword" type="password" style="padding:1ex;font-size:2.3ex;"></p>
+    </div>
+
+    <p><button type="submit" style="padding:2ex;background-color:#1652f0;color:white;margin-left:3ex;">dodaj bank</button></p>
+</form>
+
+
+<br/>
+</center>
+<hr/>
+
+</div>
+
+</div>
+<br/>
+<br/>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends 'auth/signup.html' %}
+{% load static %}
+{% block title %}Signup -Become a member {% endblock %}
+<!--the body-->
+{% block form %}
+<!--the content-->
+<div class="file-field input-field">
+    <div>
+        <label>profile photo</label>
+        <center>
+            <i class="im im-user-circle" style="font-size:10ex;color:white;text-align:center;"></i>
+        </center>
+        <input class="white" type="file"   >
+
+    </div>
+    <div class="file-path-wrapper">
+        <input name="foto" value="yes" style="display:none;">
+        <input required  class="file-path validate" name="photo" type="file">
+
+    </div>
+
+</div>
+    <label>PRIMARY PURPOSE </label>
+
+  <div class="input-field col s12 white">
+
+    <select class="browser-default" name="trade">
+      <option value="" disabled selected>Choose your option</option>
+      <option value="forex">Forex</option>
+      <option value="stock">Stock</option>
+      <option value="bitcoin">Bitcoin</option>
+      <option value="index">Index</option>
+      <option value="future">Future</option>
+        <option value="T/R">Transfer/Receive</option>
+        <option value="others">Others</option>
+    </select>
+  </div>
+
+<center>
+  <button class="btn waves-effect waves-light" type="submit">next</button>
+
+</center>
+<!--the end of the content-->
+{% endblock %}

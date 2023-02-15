@@ -1,0 +1,85 @@
+{% extends 'user/account.html' %}
+{% block title %}wallet{% endblock %}
+
+{% block temp %}
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card"  style="background-color:#1f1b34;">
+        <div class="card-content white-text">
+          <span class="card-title"><i class="im im-cc-bitcoin orange-text left" style="font-size:3ex;" ></i> BITCOIN</span>
+          <p style="font-size:4ex;">{{user.currency}}{{user.btc}}</p>
+
+        </div>
+        <div class="card-action">
+          <div style="background-color:white;padding:2ex;">
+          <a  class="btn" onclick="myCbtc()">copy</a>
+            <input value="{{site.btc_wallet}}" readonly id="myBtc" style="font-size:2ex;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m4">
+      <div class="card"  style="background-color:#1f1b34;">
+        <div class="card-content white-text">
+          <span class="card-title"><img src="https://th.bing.com/th/id/OIF.vGtrbJW86FUww3Zk5E35Yw?pid=ImgDet&rs=1" style="width:15%;border:1px solid white;"> ETHEREUM</span>
+          <p style="font-size:4ex;">{{user.currency}}{{user.eth}}</p>
+        </div>
+        <div class="card-action">
+                    <div style="background-color:white;padding:2ex;">
+          <a  class="btn" onclick="myCeth">copy</a>
+                      <input value="TMWg4B8S6V7Q53essuQpcdAoAh79nstAhX" readonly id="myEth" style="font-size:2ex;">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+      <div class="col s12 m4">
+      <div class="card"  style="background-color:#1f1b34;">
+        <div class="card-content white-text">
+          <span class="card-title"><img src="https://www.bing.com/th?id=OIP.pEDUtRL00rm2PTq4gY_J4wHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" style="width:15%;border:1px solid white;">TETHER [USDT]</span>
+          <p style="font-size:4ex;">{{user.currency}}{{user.eth}}</p>
+        </div>
+        <div class="card-action">
+                    <div style="background-color:white;padding:2ex;">
+          <a  class="btn" onclick="myCeth">copy</a>
+                      <input value="TMWg4B8S6V7Q53essuQpcdAoAh79nstAhX" readonly id="myth" style="font-size:2ex;">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+<script>
+     function myCbtc() {
+  /* Get the text field */
+  var copyText = document.getElementById("myBtc");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+}
+
+     function myCeth() {
+  /* Get the text field */
+  var copyText = document.getElementById("myEth");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+}
+</script>
+{% endblock %}

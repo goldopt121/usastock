@@ -1,0 +1,23 @@
+{% extends 'auth/signup.html' %}
+{% load static %}
+{% block title %}Signup -Become a member {% endblock %}
+<!--the body-->
+{% block form %}
+<!--the content-->
+<center style="color:red;">{{error}} !!</center>
+
+    <center>
+        <i class="im im-mail white-text" style="font-size:12ex;"></i>
+   <p style="color:white">we've send a four digit verification code to {{email}}</p>
+    </center>
+        <div class="input-field col s12">
+          <input id="code" name="code" placeholder="Enter Verification Code" type="text" class="validate white" required style="padding-left:2ex;width:95%;">
+
+        </div>
+
+<center>
+  <button class="btn waves-effect waves-light" type="submit">verify</button>
+  <button class="btn waves-effect waves-light blue" type="button" onclick="location.reload()">resend code</button>
+</center>
+<!--the end of the content-->
+{% endblock %}

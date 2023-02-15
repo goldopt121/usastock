@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" style="width:100%;overflow-x:hidden;">
+<head>
+<!--        <script>-->
+<!--        if(window.location.protocol === "http:") {-->
+<!--           window.location.protocol = "https:";-->
+<!--        }-->
+<!--    </script>-->
+    {% load static %}
+    <meta charset="UTF-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}USA STOCK AND FX TRADE{% endblock %}</title>
+    <!--the jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--the iconmntra-->
+    <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
+        <!-- the fav icon -->
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/excoin/image/upload/v1676404070/rlogo_vqoryk.jpg"/>
+
+
+    <!--the AOS lib-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
+
+
+    <!--the style-->
+
+
+
+    <style>
+    /* for mobile */
+    @media (max-width:992px){
+    .gt_logo{width:3.5ex;position:absolute;top:0.1ex;margin-left:-2.6ex;border-radius:3.5ex;}
+    .parallax-container{height:35ex;}
+    .space{margin-left:20%;}
+    .exo{font-size:1.5ex !important;}
+    .name{position:absolute;font-size:3ex;right:2ex;}
+    }
+
+    /* for desktop */
+    @media (min-width:992px){
+    .gt_logo{width:3.5ex;position:relative;top:0.2ex;}
+    .caps{width:40% !important;padding:2ex;right:58% !important;top:50ex !important;}
+    .capimg{height:60ex;}
+    .name{position:absolute;left:10ex;}
+    }
+
+
+    .glow {
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+    </style>
+    <!--the style ends-->
+
+
+<script src="//code.tidio.co/vz7fhnypjtxxvczf73hjerpxzruxzjko.js" async></script>
+
+</head>
+<body onload="Popp()" onscroll="document.getElementById('tone').play()" style="width:100%;overflow-x:hidden;">
+
+<!--the nav -->
+<div class="navbar-fixed" style="">
+    <nav style="background-color:#1f1b34;">
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">
+                <img class="gt_logo" src="https://res.cloudinary.com/excoin/image/upload/v1676404070/rlogo_vqoryk.jpg">  </a>
+
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                {% block navs %}
+       <li><a href="/">Home</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/login/">Login</a></li>
+    <li><a href="/signup/">Signup</a></li>
+    <li><a href="/logout/">Logout</a></li>
+                {% endblock %}
+            </ul>
+        </div>
+    </nav>
+</div>
+{% block nav %}
+<!--the sidebar -->
+<ul class="sidenav" id="mobile-demo">
+            <li><img class="" src="https://res.cloudinary.com/excoin/image/upload/v1676404070/rlogo_vqoryk.jpg" style="width:100%;"></a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/login/">Login</a></li>
+    <li><a href="/signup/">Signup</a></li>
+    <li><a href="/logout/">Logout</a></li>
+</ul>
+{% endblock %}
+<!--the nav ends-->
+<!--the marquee-->
+<div style="position:relative;">
+    <coingecko-coin-price-marquee-widget coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="ivory" locale="en" vce-ready=""></coingecko-coin-price-marquee-widget>
+</div>
+{% block body %}
+<!--the carousel-->
+<div>
+    <img class="capimg" src="{% static 'sl.gif' %}" style="width:100%;margin-bottom:-1ex;">
+</div>
+
+<div class="row caps" style="position:absolute;top:18ex;right:1ex;width:70%;background-color:#2725254f;">
+    <div class="col s3">
+        <a href="/login/" class="btn waves-effect" style="background-color:#1f1b347a;">login</a>
+    </div>
+    <div class="col s3 push-s2">
+        <a href="/signup/" class="btn waves-effect" style="background-color:#2196f35e;">signup</a>
+    </div>
+ <br/><br/><label style="color:white;">signup for free and become a USA STOCK AND FX TRADE member, let every minute count as profit for you.</label>
+</div>
+<!--end of the carousel-->
+
+
+<!--the sound-->
+<audio id="tone" controls loop  hidden autoplay>
+  <source src="{% static 'tone3.mp3' %}" type="audio/mp3">
+</audio>
+
+ <a class="btn-floating btn waves-effect waves-light" style="background-color:#2725254f;position:fixed;bottom:1.5ex;"
+ onclick="document.getElementById('tone').pause()"><i class="material-icons">volume_off</i></a>
+
+ <a class="btn-floating btn waves-effect waves-light" style="background-color:#2725254f;position:fixed;bottom:8.5ex;"
+ onclick="document.getElementById('tone').play()"><i class="material-icons">volume_up</i></a>
+
+
+<!--end the sound-->
+
+<!--the cap div-->
+<div class="row" style="padding-top:3ex;background-color:#1f1b34;color:white;">
+    <div class="col s4">
+        <center><i class="im im-trophy"></i></center>
+        <p style="text-align:center;">
+            Become a champion by making bullish trades
+            Forex, Mining, Stock, Index, Gold  More
+        </p>
+    </div>
+    <div class="col s4">
+        <center><i class="im im-tools"></i></center>
+        <p style="text-align:center;">
+            More than 120 trade tools available , tested and are verified to make trade easy and profitable
+        </p>
+    </div>
+    <div class="col s4">
+        <center><i class="im im-banknote"></i></center>
+        <p style="text-align:center;">
+            Over 2,500 assets and currency supported for trade
+        </p>
+    </div>
+
+</div>
+<!--end of the caps div-->
+<div>
+    <img src="{% static 'rewards-carousel1-lsize.png' %}" style="width:100%;">
+</div>
+
+
+<!--why join-->
+<div class="row" style="background-image:url('static/header-bg-ssize.jpg')">
+    <br/>
+    <h2 style="padding-left:1ex;    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;">WHY <span style="color:#eba447;">JOIN US</span></h2>
+    <p style="padding:1.5ex;color:white;">we provide a secure and convenient platform for making wealth</p>
+
+    <div class="col s10 push-s1 l3" data-aos="zoom-in">
+        <div class="card darken-1" style="background-color:#29315d;">
+            <div class="card-content white-text">
+                <span class="card-title"><i class="im im-bar-chart" style="font-size:4ex;"></i></span>
+                <p>Save and Trade popular digital currencies, keep track of them in one place.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s10 push-s1 l3" data-aos="zoom-in">
+        <div class="card darken-1" style="background-color:#29315d;">
+            <div class="card-content white-text">
+                <span class="card-title"><i class="im im-timer" style="font-size:4ex;"></i></span>
+                <p>Invest in cryptocurrency slowly over time by scheduling trade daily, weekly, or monthly.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s10 push-s1 l3" data-aos="zoom-in">
+        <div class="card darken-1" style="background-color:#29315d;">
+            <div class="card-content white-text">
+          <span class="card-title"><i class="material-icons" style="font-size:4ex;">
+                account_balance_wallet</i></span>
+                <p>Invest in cryptocurrency, stock etc make profits in every seconds that counts scheduling trade daily, weekly, or monthly.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s10 push-s1 l3" data-aos="zoom-in">
+        <div class="card darken-1" style="background-color:#29315d;">
+            <div class="card-content white-text">
+          <span class="card-title"><i class="material-icons" style="font-size:4ex;">
+                security</i></span>
+                <p>Invest in cryptocurrency profit  over seconds of time by scheduling trade daily, weekly, or monthly.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--ends why join-->
+
+<!--the champ -->
+<div class="row">
+    <div class="col s12 l6">
+        <img src="{% static 'cham.jpeg' %}" style="width:100%;">
+    </div>
+    <div class="col s12 l6">
+        <h2 style="color:grey;">
+            BECOME THE CHAMPION OF THE TRADE
+        </h2>
+    </div>
+</div>
+<!--the champ ends-->
+
+<!--the current market -->
+<iframe height="400" src="https://www.widgets.investing.com/top-cryptocurrencies?theme=darkTheme&amp;roundedCorners=true" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" style="width:100%;"></iframe>
+
+<!--end of the current market-->
+
+<!--whats new -->
+<h4 style="padding-left:1ex;">WHAT'S <span style="color:#eba447;">NEW FOR YOU</span></h4>
+
+<div class="parallax-container ">
+    <div class="parallax"><img src="{% static 'workplace-13dade2529925a0a2ef1cad78d4e9da1.jpg' %}"></div>
+</div>
+<div class="section white">
+    <div class="row container">
+        <h4 class="header">
+            <i class="im im-color-fan" style="font-size:2ex;color:#ff9800;"></i>
+            Earn up to $1million worth of crypto with USA STOCK AND FX TRADE
+        </h4>
+    </div>
+</div>
+<!--end whats  new-->
+
+<!--the plan-->
+<div class="row">
+    <div class="col s10 push-s1  m3" data-aos="fade-up">
+        <div class="card  darken-1">
+
+            <div class="card-content" style="color:#2b3ea6eb;">
+                <span class="card-title" style="border-bottom:2px solid #2b3ea6eb; color:#2b3ea6eb;" ><i class="im im-star-half"></i> <b>STARTER</b></span>
+                <h3><i class="im im-arrow-up"></i>100%</h3>
+                <p><span class="material-icons">smart_toy</span>Trade robot    <span style="float:right; color:red;">Active</span> </p>
+                <p class="green-text"><span class="material-icons ">redeem</span>Promo    <span style="float:right; color:green;">max $100</span> </p>
+                <p class=""><span class="material-icons ">today</span>Trade Duration    <span style="float:right;"></span> </p>
+                <p style="padding:2ex;"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col s10 push-s1  m3" data-aos="fade-up">
+        <div class="card  darken-1">
+
+            <div class="card-content" style="color:green;">
+                <span class="card-title" style="border-bottom:2px solid green; color:green;" ><i class="im im-award"></i> <b>PROFESSIONAL</b></span>
+                <h3><i class="im im-arrow-up"></i>120%</h3>
+                <p><span class="material-icons">smart_toy</span>Trade robot    <span style="float:right; color:red;">Active</span> </p>
+                <p class="green-text"><span class="material-icons ">redeem</span>Promo    <span style="float:right; color:green;">max $200</span> </p>
+                <p class=""><span class="material-icons ">today</span>Trade Duration    <span style="float:right;"></span> </p>
+                <p style="padding:2ex;"></p>
+
+            </div>
+        </div>
+    </div>
+    <div class="col s10 push-s1  m3" data-aos="fade-up">
+        <div class="card  darken-1">
+
+            <div class="card-content" style="color:#e91e63;">
+                <span class="card-title" style="border-bottom:2px solid green; color:#e91e63;" ><i class="material-icons">military_tech</i> <b>PREMIUM</b></span>
+                <h3><i class="im im-arrow-up"></i>150%</h3>
+                <p><span class="material-icons">smart_toy</span>Trade robot    <span style="float:right; color:red;">Active</span> </p>
+                <p class="#e91e63-text"><span class="material-icons ">redeem</span>Promo    <span style="float:right; color:green;">max $500</span> </p>
+                <p class=""><span class="material-icons ">today</span>Trade Duration    <span style="float:right;"></span> </p>
+                <p style="padding:2ex;"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col s10 push-s1  m3" data-aos="fade-up">
+        <div class="card  darken-1">
+
+            <div class="card-content" style="color:#eba447;">
+                <span class="card-title" style="border-bottom:2px solid #eba447; color:#eba447;" ><i class="im im-trophy"></i> <b>VIP</b></span>
+                <h3><i class="im im-arrow-up"></i>200%</h3>
+                <p><span class="material-icons">smart_toy</span>Trade robot    <span style="float:right; color:red;">Active</span> </p>
+                <p class=''><span class="material-icons ">redeem</span>Promo    <span style="float:right; color:green;">max $10,000</span> </p>
+                <p class=""><span class="material-icons ">today</span>Trade Duration    <span style="float:right;"></span> </p>
+                <p class=""><span class="im im-cc-bitcoin"></span>Amount     <span style="float:right;">1BTC</span> </p>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<center>
+    <a href="" class="btn waves-effect pulse">GET STARTED</a>
+    <h3>Get started in a few minutes</h3>
+</center>
+<div class="row">
+    <div class="col s3" style="">
+        <center><i class="im im-user-male"></i></center>
+        <hr/>
+        Enrol and become a member
+    </div>
+    <div class="col s3" style="">
+        <center><i class="im im-bank"></i></center>
+        <hr/>
+        connect to a any bank/digital wallet
+    </div>
+    <div class="col s3" style="">
+        <center><i class="im im-gear"></i></center>
+        <hr/>
+        set up a automated (AI bots) or manual trade
+    </div>
+    <div class="col s3" style="">
+        <center><i class="im im-coin"></i></center>
+        <hr/>
+        +add up and secure your profits
+    </div>
+</div>
+<!--end of the plan-->
+
+<!--the site info-->
+<div class="row center">
+    <div class="col s4">
+        <h4>12k+</h4>
+        Total Trade
+    </div>
+    <div class="col s4">
+        <h4>3k+</h4>
+        Verified Member
+    </div>
+    <div class="col s4">
+        <h4><i class="im im-globe"></i></h4>
+        All Supported
+    </div>
+
+</div>
+<!--end of the site info-->
+
+
+<!--THIS IS WHERE NOTIFICATION POPS-->
+<div>
+    <div id="pop1" style="padding:1ex;color:black;position:fixed;z-index:999;top:8%;font-weight:normal;
+    background-color:#ffffff;width:40ex;font-size:2ex;border:3px solid #a9a1a147;left:-80%;border-radius:3ex;display:none;">
+        <i class="im im-user-male"> </i> Anonymous<br/> from <b style="color:green;">'<span id="state"></span>'</b> just withdrawn <b style="color:red;">'$<span id="amt1">cdwc</span>'</b> <br/> <span class="right" style="font-size:1.2ex;"><i class="im im-timer"></i><br/>just now</span></div>
+</div>
+
+<div>
+    <div id="pop2" style="padding:2ex;color:black;position:fixed;z-index:999;top:25%;font-weight:normal;
+    background-color:#ffffff;width:40ex;font-size:2.4ex;display:none;border:3px solid #a9a1a147;">
+        <i class="im im-trophy" style="font-size:4ex;color:#b79222;"></i><br/>'<span id="user"></span>'</b> user just claimed <b style="color:red;">'$<span id="amt2"></span>'</b> Bonus Award
+    </div>
+</div>
+
+<!-- POPS ENDS-->
+
+{% endblock %}
+
+
+<!--the footer-->
+<footer class="page-footer" style="background-color:#1f1b34;">
+    <div class="container">
+        <div class="row">
+            <div class="col l12 s12">
+
+        <p>
+            <!-- GTranslate: https://gtranslate.io/ -->
+<a href="#" onclick="doGTranslate('en|en');return false;" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="English" /></a><a href="#" onclick="doGTranslate('en|fr');return false;" title="French" class="gflag nturl" style="background-position:-200px -100px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="French" /></a><a href="#" onclick="doGTranslate('en|de');return false;" title="German" class="gflag nturl" style="background-position:-300px -100px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="German" /></a><a href="#" onclick="doGTranslate('en|it');return false;" title="Italian" class="gflag nturl" style="background-position:-600px -100px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="Italian" /></a><a href="#" onclick="doGTranslate('en|pt');return false;" title="Portuguese" class="gflag nturl" style="background-position:-300px -200px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="Portuguese" /></a><a href="#" onclick="doGTranslate('en|ru');return false;" title="Russian" class="gflag nturl" style="background-position:-500px -200px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="Russian" /></a><a href="#" onclick="doGTranslate('en|es');return false;" title="Spanish" class="gflag nturl" style="background-position:-600px -200px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="Spanish" /></a>
+
+<style type="text/css">
+<!--
+a.gflag {vertical-align:middle;font-size:16px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/16.png);}
+a.gflag img {border:0;}
+a.gflag:hover {background-image:url(//gtranslate.net/flags/16a.png);}
+#goog-gt-tt {display:none !important;}
+.goog-te-banner-frame {display:none !important;}
+.goog-te-menu-value:hover {text-decoration:none !important;}
+body {top:0 !important;}
+#google_translate_element2 {display:none!important;}
+-->
+</style>
+
+<br /><select class="browser-default" onchange="doGTranslate(this);"><option value="">Select Language</option><option value="en|af">Afrikaans</option><option value="en|sq">Albanian</option><option value="en|ar">Arabic</option><option value="en|hy">Armenian</option><option value="en|az">Azerbaijani</option><option value="en|eu">Basque</option><option value="en|be">Belarusian</option><option value="en|bg">Bulgarian</option><option value="en|ca">Catalan</option><option value="en|zh-CN">Chinese (Simplified)</option><option value="en|zh-TW">Chinese (Traditional)</option><option value="en|hr">Croatian</option><option value="en|cs">Czech</option><option value="en|da">Danish</option><option value="en|nl">Dutch</option><option value="en|en">English</option><option value="en|et">Estonian</option><option value="en|tl">Filipino</option><option value="en|fi">Finnish</option><option value="en|fr">French</option><option value="en|gl">Galician</option><option value="en|ka">Georgian</option><option value="en|de">German</option><option value="en|el">Greek</option><option value="en|ht">Haitian Creole</option><option value="en|iw">Hebrew</option><option value="en|hi">Hindi</option><option value="en|hu">Hungarian</option><option value="en|is">Icelandic</option><option value="en|id">Indonesian</option><option value="en|ga">Irish</option><option value="en|it">Italian</option><option value="en|ja">Japanese</option><option value="en|ko">Korean</option><option value="en|lv">Latvian</option><option value="en|lt">Lithuanian</option><option value="en|mk">Macedonian</option><option value="en|ms">Malay</option><option value="en|mt">Maltese</option><option value="en|no">Norwegian</option><option value="en|fa">Persian</option><option value="en|pl">Polish</option><option value="en|pt">Portuguese</option><option value="en|ro">Romanian</option><option value="en|ru">Russian</option><option value="en|sr">Serbian</option><option value="en|sk">Slovak</option><option value="en|sl">Slovenian</option><option value="en|es">Spanish</option><option value="en|sw">Swahili</option><option value="en|sv">Swedish</option><option value="en|th">Thai</option><option value="en|tr">Turkish</option><option value="en|uk">Ukrainian</option><option value="en|ur">Urdu</option><option value="en|vi">Vietnamese</option><option value="en|cy">Welsh</option><option value="en|yi">Yiddish</option></select><div id="google_translate_element2"></div>
+<script type="text/javascript">
+function googleTranslateElementInit2() {new google.translate.TranslateElement({pageLanguage: 'en',autoDisplay: false}, 'google_translate_element2');}
+</script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('6 7(a,b){n{4(2.9){3 c=2.9("o");c.p(b,f,f);a.q(c)}g{3 c=2.r();a.s(\'t\'+b,c)}}u(e){}}6 h(a){4(a.8)a=a.8;4(a==\'\')v;3 b=a.w(\'|\')[1];3 c;3 d=2.x(\'y\');z(3 i=0;i<d.5;i++)4(d[i].A==\'B-C-D\')c=d[i];4(2.j(\'k\')==E||2.j(\'k\').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,\'m\');7(c,\'m\')}}',43,43,'||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById|google_translate_element2|innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'),0,{}))
+/* ]]> */
+</script>
+
+        </p>
+
+                <h5 class="white-text">
+                    <a href="#!" class="brand-logo white-text"><img class="gt_logo" src="https://res.cloudinary.com/excoin/image/upload/v1676404070/rlogo_vqoryk.jpg"></a>
+
+                </h5>
+                <p class="grey-text text-lighten-4"></p>
+            </div>
+            <div class="col l4 ofbtecht-l2 s6">
+                <h5 class="white-text">MARKET</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Forex</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Stock</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Bitcoin</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Index</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Futures</a></li>
+
+                </ul>
+            </div>
+            <div class="col space l4 offset-l2 s6">
+                <h5 class="white-text">CONTACT</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href=""></a><i class="im im-mail "></i> {{site.email}}</li>
+                    <li><a class="grey-text text-lighten-3" href=""></a><i class="im im-location "></i> {{site.add}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2019 Copyright USA STOCK AND FX TRADE.
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+    </div>
+</footer>
+
+<!--end footer-->
+<script>
+document.getElementById("tone").volume = 0.2;
+
+      $(document).ready(function(){
+      $('.sidenav').sidenav();
+      $('.parallax').parallax();
+       $('.carousel').carousel();
+      $('.carousel').carousel({dist:0});
+        window.setInterval(function(){$('.carousel').carousel('next')},5000);
+      $('.carousel.carousel-slider').carousel({
+    fullWidth: true, indicators:true
+  });
+
+        });
+
+AOS.init();
+
+ pop1 = document.getElementById("pop1");
+
+
+
+    function Popp(){
+
+    setTimeout(popl,2000)
+        function popl(){
+            amt = Math.floor(Math.random() * 100000) + 5000;
+            document.getElementById("amt1").innerHTML=amt;
+            var country = ["USA","UK","CANADA","SOUTH-AFRICA","DUBAI","BRAZIL","INDIA"]
+            choice = Math.floor(Math.random() * 7) ;
+            document.getElementById("state").innerHTML= country[choice];
+            pop1.style.display='block';
+            pop1.style.left='0%';
+
+            setTimeout(popk,5000);
+            function popk(){
+            pop1.style.display='none';}
+
+            setTimeout(popm,4000);
+            function popm(){
+            amt2 = Math.floor(Math.random() * 1000) + 100 ;
+            user = Math.floor(Math.random() * 11) + 1 ;
+
+            document.getElementById("amt2").innerHTML=amt2;
+            document.getElementById("user").innerHTML=user;
+            pop2.style.display='block';
+            pop1.style.display='none';
+
+                }
+             setTimeout(popl,8000);
+            function popl(){
+            pop1.style.display='none';
+            pop2.style.display='none';}
+
+    }
+
+
+  }
+
+</script>
+</body>
+</html>

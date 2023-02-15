@@ -1,0 +1,120 @@
+{% extends 'user/account.html' %}
+{% block title %}livetrade{% endblock %}
+
+
+{% block temp %}
+
+<style>
+    @media (min-width:992px){
+    }
+</style>
+
+
+<p style="padding:2px;background-color:tea;">TRADE SETTINGS</p>
+
+<!-- the balance info-->
+<form method="post" target="_self" class="row">
+     {% csrf_token %}
+    <div class="col s12 m8">
+        <ul class="collection">
+            <li class="collection-item" style="background-color:#1f1b34;color:white;"><span class="material-icons">smart_toy</span>
+                <input oninput="Bot()" name="bot" id="bot" class="white" style="padding-left:1ex;width:60%;"placeholder="ROBOT ID"> <span style="color:green;font-size:5ex;" class="material-icons right" id="check">
+check_circle_outline
+</span>
+                <div class="preloader-wrapper small active">
+
+    <div class="spinner-layer spinner-green-only" id="loader" style="display:">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+
+            </li>
+            <li class="collection-item">
+
+
+                    <label>select Plan</label>
+                    <select name="plan">
+                        <option value="stater">starter</option>
+                        <option value="professional">professional</option>
+                        <option value="premium">premium</option>
+                        <option value="vip">vip</option>
+                    </select>
+            <div>
+
+            </div>
+
+            </li>
+            <li class="collection-item">
+                                    <label>Trade Type</label>
+                    <select name="trade">
+                        <option value="forex" selected>Forex</option>
+                        <option value="bitcoin">Bitcoin</option>
+                        <option value="stock">Stock</option>
+                        <option value="index">Index</option>
+                        <option value="future">Future</option>
+                    </select>
+            </li>
+
+        </ul>
+        <center>
+        <button id="trade" type="submit" class="btn waves-effect"></i>START TRADE</button></center>
+    </div>
+
+</form>
+<script>
+      $(document).ready(function(){
+    $('select').formSelect();
+    });
+    bot= document.getElementById('bot');
+    loader= document.getElementById('loader');
+    check= document.getElementById('check');
+
+    loader.style.display='none';
+    check.style.display='none';
+    trade = document.getElementById('trade');
+    trade.disabled=true;
+
+    function Bot(){
+        if( bot.value=='QC25a56bot'){
+        loader.style.display='none';
+            check.style.display='block';
+            trade.disabled=false;
+        }
+
+           else if( bot.value=='Hr25a78bot'){
+                    loader.style.display='none';
+            check.style.display='block';
+            trade.disabled=false;
+
+        }
+
+           else if( bot.value=='ZKC27a11bot'){
+                    loader.style.display='none';
+            check.style.display='block';
+            trade.disabled=fasle;
+
+        }
+
+               else if( bot.value==''){
+                loader.style.display='none';
+                check.style.display='none';
+                trade.disabled=true;
+
+        }
+
+        else{
+            loader.style.display='block';
+             check.style.display='none';
+             trade.disabled=true;
+        }
+
+    }
+
+</script>
+{% endblock %}

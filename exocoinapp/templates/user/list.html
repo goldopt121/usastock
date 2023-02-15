@@ -1,0 +1,30 @@
+{% extends 'user/account.html' %}
+{% block title %}livetrade{% endblock %}
+
+
+{% block temp %}
+
+<style>
+    @media (min-width:992px){
+    }
+</style>
+
+
+<p style="padding:2px;background-color:tea;">REFERRALS LIST</p>
+
+<!-- the balance info-->
+<div class="row">
+    <div class="col s12 l10">
+   <ul class="collection ">
+       {% for ref in Refs %}
+       <li class="collection-item"><i class="im im-user-male left"></i>{{ref.add}}</li>
+        {% endfor %}
+    </ul>
+    </div>
+</div>
+    <script>
+      $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
+{% endblock %}

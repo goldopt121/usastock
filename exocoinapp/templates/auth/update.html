@@ -1,0 +1,27 @@
+{% extends 'auth/signup.html' %}
+{% load static %}
+{% block title %}Signup -Become a member {% endblock %}
+<!--the body-->
+{% block balls %}
+{% endblock %}
+
+{% block form %}
+<!--the content-->
+<center><h4 class="white-text">Login To Begin</h4></center>
+        <label for="email">Email</label>
+        <div class="input-field col s12">
+          <input name="email" id="email" type="email" class="validate white" style="padding-left:2ex;width:95%;" required>
+        </div>
+
+         <p><label for="pword">Password</label> </p>
+        <div class="input-field col s12">
+          <input name="pword" id="pword" type="text" class="validate white" style="padding-left:2ex;width:95%;" required>
+        </div>
+<center>
+    <button class="btn waves-effect waves-light" type="submit">proceed</button>
+<p style="color:white;">Don't have an account ? <a href="/signup/">signup</a></p>
+</center>
+<!--the end of the content-->
+
+
+{% endblock %}

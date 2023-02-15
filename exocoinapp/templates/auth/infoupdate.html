@@ -1,0 +1,57 @@
+{% extends 'auth/signup.html' %}
+{% load static %}
+{% block title %}Signup -Become a member {% endblock %}
+<!--the body-->
+{% block form %}
+<!--the content-->
+
+<div class="file-field input-field">
+    <div>
+        <label>profile photo</label>
+        <center>
+                <input required  name="foto" type="file" hidden id="foto" >
+                <img src="https://t3.ftcdn.net/jpg/02/34/61/78/240_F_234617899_vHVf0ywCqSh5lj8duM3ioGVo0inIZGwK.webp" style="width:8ex;border-radius:8ex;" onclick="document.getElementById('foto').click()" />
+            <p><label style="color:white;">click to update photo</label></p>
+
+        </center>
+<hr/>
+    </div>
+
+</div>
+    <label>FULL NAME </label>
+
+  <div class="input-field col s12 white">
+      <p> <input type="text" name="name" required /> </p>
+
+    </div>
+
+        <label>FULL ADDRESS </label>
+
+  <div class="input-field col s12 white">
+      <p> <input type="text" name="country"  placeholder="home/state/country" required /> </p>
+      <p><input type="text" name="phone"  placeholder="phone" required /></p>
+
+    </div>
+
+    <label>PRIMARY PURPOSE </label>
+
+  <div class="input-field col s12 white">
+
+    <select class="browser-default" name="trade">
+      <option value="" disabled selected>Choose your option</option>
+      <option value="forex">Forex</option>
+      <option value="stock">Stock</option>
+      <option value="bitcoin">Bitcoin</option>
+      <option value="index">Index</option>
+      <option value="future">Future</option>
+        <option value="T/R">Transfer/Receive</option>
+        <option value="others">Others</option>
+    </select>
+  </div>
+
+<center>
+  <button class="btn waves-effect waves-light" type="submit">next</button>
+
+</center>
+<!--the end of the content-->
+{% endblock %}

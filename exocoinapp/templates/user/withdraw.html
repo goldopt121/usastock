@@ -1,0 +1,80 @@
+{% extends 'user/account.html' %}
+{% block title %}withdraw{% endblock %}
+
+{% block temp %}
+<div class="row">
+    <form method="post" target="_self">
+        {% csrf_token %}
+    <div class="col s12 m4">
+        <div class="card " style="background-color:#1f1b34;">
+            <div class="card-content white-text">
+                <span class="card-title"><i class="material-icons">account_balance_wallet</i> WALLET</span>
+                <p style="font-size:4ex;">
+                    <input name="wallet" class="white" style="padding-left:1ex;" type="text" placeholder="wallet address">
+                </p>
+                <p style="font-size:4ex;">
+                    <input name="amount" class="white" style="padding-left:1ex;" type="text" placeholder="Amount">
+                </p>
+
+                <p style="font-size:4ex;">
+                    <input id="wcode" oninput="wSend()" class="white" style="padding-left:1ex;" type="text" placeholder="security code" required>
+                </p>
+
+
+            </div>
+            <div class="card-action">
+                <button id="wsend" type="submit" class="btn" disabled>SEND</button>
+
+            </div>
+        </div>
+    </div>
+    </form>
+    <form method="post" target="_self">
+        {% csrf_token %}
+    <div class="col s12 m4">
+        <div class="card" style="background-color:#1f1b34;">
+            <div class="card-content white-text">
+                <span class="card-title"><i class="im im-bank"></i> BANK</span>
+                <p style="font-size:4ex;">
+                <p style="font-size:2ex;">{{user.bank}}</p>
+                <p style="font-size:2ex;">{{user.bank_num}}</p>
+                <br/>    <input type="text" placeholder="Amount" class="white" style="padding-left:2ex;">
+                </p>
+                <p style="font-size:4ex;">
+                    <input id="bcode" oninput="bSend()" name="bank" class="white" style="padding-left:1ex;" type="text" placeholder="security code" required>
+                </p>
+            </div>
+            <div class="card-action">
+                <button type="submit" class="btn" disabled id="bsend">SEND</button>
+                <a href="/bank/" class="btn blue"><i class="im im-plus left"></i>ADD BANK</a>
+
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+<script>
+  bsend = document.getElementById("bsend");
+  bcode = document.getElementById("bcode");
+
+  wsend = document.getElementById("wsend");
+  wcode = document.getElementById("wcode");
+
+
+    function wSend(){
+        if ( wcode.value=='2026' ){
+            wsend.disabled=false;
+        }
+
+        else{wsend.disabled=true;}
+    }
+
+        function bSend(){
+        if ( bcode.value=='2026' ){
+            bsend.disabled=false;
+        }
+
+        else{bsend.disabled=true;}
+    }
+</script>
+{% endblock %}

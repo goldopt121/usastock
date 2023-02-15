@@ -1,0 +1,54 @@
+{% extends 'user/account.html' %}
+{% block title %}deposit{% endblock %}
+
+{% block temp %}
+<div class="row">
+    <span style="color:green;">{{msg}}</span>
+    <form method="post" target="_self">
+        {% csrf_token %}
+        <div class="col s12 m6">
+            <div class="card " style="background-color:#1f1b34;">
+                <div class="card-content white-text">
+                    <span class="card-title"><i class="material-icons left" style="font-size:3ex;">add_box</i> AMOUNT</span>
+                    <p style="font-size:4ex;">{{user.currency}} <input type="text" required name="amount" class="white"style="width:60%;padding-left:1ex;" placeholder="500"></p>
+                </div>
+                <div class="card-action">
+                    <button class="btn waves-effect" type="submit">proceed</button>
+
+                </div>
+            </div>
+        </div>
+    </form>
+    <form method="post" target="_self" enctype="multipart/form-data" id="payslip">
+        {% csrf_token %}
+        <div class="col s12 m6">
+            <div class="card " style="background-color:#1f1b34;">
+                <div class="card-content white-text">
+                    <span class="card-title" style="font-size:3ex;"><i class="material-icons green-text left" style="font-size:2.5ex;">post_add</i> UPLOAD PAYMENT SLIP</span>
+
+                    <P>note it's very important to make a screenshot of every payment you make and upload a proof
+                    </P>
+                    <br/>
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input name="payslip" type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input name="upload" style="display:none;">
+                            <input name="" class="file-path validate white" type="text" required placeholder="upload" style="padding-left:1ex;">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-action">
+                    <center>
+                    <button class="btn" type="submit">submit</button>
+                     </center>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

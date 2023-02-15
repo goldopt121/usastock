@@ -1,0 +1,75 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block title %}About {% endblock %}
+<!--the body-->
+{% block body %}
+
+
+<!--the style-->
+
+<style>
+    /* for mobile */
+    @media (max-width:992px){
+    .note{margin-bottom:2ex,}
+
+    }
+
+    /* for desktop */
+    @media (min-width:992px){
+    .cap{font-size:8ex;padding:0.5ex 2ex;}
+    .capd{margin-top:-18ex !important;}
+    .tit{font-size:6ex;margin-top:2ex;margin-bottom:2ex;}
+    .note{font-size:3ex;}
+    }
+    </style>
+<!--the style ends-->
+
+<!--the main content-->
+<div>
+    <img src="https://res.cloudinary.com/excoin/image/upload/v1676404070/rlogo_vqoryk.jpghttps://th.bing.com/th/id/OIP.9VI1MbetCBDM-5iwLxVKOAHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.5&pid=1.7" style="width:100%;">
+    <div class="capd" style="position:absolute;margin-top:-11ex;margin-left:10%;color:#121113f2; background-color:#e8dff038;border-radius:5ex;">
+        <h4 class="cap"><b>ABOUT US</b></h4>
+    </div>
+    <center>
+        <div class="container">
+            <h5 class="tit" style="color:grey;">Secure, Manage, and Exchange cryptocurrency on desktop, mobile and hardware wallets.</h5>
+
+        </div>
+    </center>
+    <div class="row container">
+        <div class="col note s12 s6" style="color:grey;">
+             we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone.
+
+        </div>
+
+        <div class="col note s12 l6" style="color:grey;">
+            Our goal is to remove the geek requirement and make it fun and easy to learn and use cryptocurrency. No technical talk. No confusing steps - we think it shows.        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s4">
+        <center>
+            <p style="margin-bottom:-2ex;">100%</p>
+            <h5>SAFE</h5>
+        </center>
+        </div>
+        <div class="col s4">
+        <center>
+            <p style="margin-bottom:-2ex;">100%</p>
+            <h5>RELIABLE</h5>
+        </center>
+        </div>
+        <div class="col s4">
+        <center>
+            <p style="margin-bottom:-2ex;">100%</p>
+            <h5>TRUSTED</h5>
+        </center>
+        </div>
+    </div>
+
+</div>
+
+
+<!--the end of the content-->
+
+{% endblock %}

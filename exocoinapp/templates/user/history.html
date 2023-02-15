@@ -1,0 +1,46 @@
+{% extends 'user/account.html' %}
+{% block title %}history{% endblock %}
+
+
+{% block temp %}
+
+<style>
+    @media (min-width:992px){
+    }
+</style>
+
+
+<p style="padding:2px;background-color:tea;">TRANSACTION(S) HISTORY</p>
+
+<!-- the balance info-->
+<div class="row">
+    <div class="col s12 l10">
+        <table class="">
+            <thead>
+            <tr>
+                <th>REQUEST</th>
+                <th>AMOUNT</th>
+                <th>STATUS</th>
+                <th>DATE</th>
+            </tr>
+            </thead>
+ {% for his in His %}
+            <tbody>
+            <tr>
+                <td>{{his.type}}</td>
+                <td>{{user.currency}}{{his.amount}}</td>
+                <td>{{his.status}}</td>
+                <td>{{his.date}}</td>
+            </tr>
+
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<script>
+      $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
+{% endblock %}

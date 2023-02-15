@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>verification-email</title>
+
+    <style>
+        @media (min-width:992px){
+        .td1{width:5%;}
+        .msg{width:40% !important;}
+        }
+
+        @media (max-width:992px){
+        .td1{width:20%;}
+        .td2{margin-left:1ex;}
+        }
+
+    </style>
+
+</head>
+<body style="width:100%; overflow-x:hidden; margin:0px;font-family:Sans-serif;">
+<header>
+    <table style="width:100%; background-color:#1f1b34;">
+
+        <tr>
+            <td style="color:white;"><h1 class="td2"><h1>USA STOCK AND FX TRADE</h1></td>
+        </tr>
+    </table>
+</header>
+  {% block content %}
+<center>
+    <h4 style='background-color:#095ad2cc;color:white;padding:2ex;'>VERIFICATION CODE</h4>
+
+
+<div class="msg" style="color:#0d1852;width:70%;padding:2.5%;border:2px solid white;height:35ex;background-color:#f5f1e747;text-align:left;">
+
+    <h3>Welcome {{name }}</h3>
+    <h3>your verification code is  </h3>
+
+    <center style="margin:6ex 0px 0px 0px;">
+    <span style="text-align:center;padding:1ex;background-color:#3e3ea0eb;color:white;font-size:4ex;">{{pin}}</span>
+    </center>
+</div>
+    <br/><br/>
+</center>
+    {% endblock %}
+<footer style="width:90%; background-color:#1f1b34;color:white;padding:5%;">
+<div>
+    <h4 style="">MARKET</h4>
+    <hr/>
+    <ul>
+        <li>FOREX</li>
+        <li>CRYPTO MINING</li>
+        <li>STOCK</li>
+        <li>INDICES</li>
+    </ul>
+</div>
+</footer>
+</body>
+</html>
