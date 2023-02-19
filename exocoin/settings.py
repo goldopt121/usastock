@@ -147,7 +147,7 @@ cloudinary.config(
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'mail.privateemail.com'
-EMAIL_HOST_USER = 'support@nietypowypolslikrypto.com'
+EMAIL_HOST_USER = 'support@usastockandfx-trade.com'
 EMAIL_HOST_PASSWORD = 'Matthew@121'
 EMAIL_PORT = 587
 
