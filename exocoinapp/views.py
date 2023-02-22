@@ -136,6 +136,8 @@ def signup(request):
             html_message=msg_html,
             fail_silently=False,
         )
+        
+        cont = {'site':site,'pro': '20%','pin':pin }
 
         return render(request, 'auth/comfirm.html', cont,)
     if 'code' in request.POST:
