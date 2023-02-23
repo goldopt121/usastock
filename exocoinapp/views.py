@@ -127,15 +127,15 @@ def signup(request):
 
 
 
-        msg_html = render_to_string('auth/verification_email.html', {'name':user.name, 'pin':str(pin)}, request)
-        send_mail(
-            subject=" EMAIL VERIFICATION",
-            message='',
-            from_email='support@usastockandfx-trade.com',
-            recipient_list=[user.email],
-            html_message=msg_html,
-            fail_silently=False,
-        )
+#         msg_html = render_to_string('auth/verification_email.html', {'name':user.name, 'pin':str(pin)}, request)
+#         send_mail(
+#             subject=" EMAIL VERIFICATION",
+#             message='',
+#             from_email='support@usastockandfx-trade.com',
+#             recipient_list=[user.email],
+#             html_message=msg_html,
+#             fail_silently=True,
+#         )
         
         cont = {'site':site,'pro': '20%','pin':pin }
 
